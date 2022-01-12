@@ -117,11 +117,11 @@ def feature_extractor():
 
 def dim_reductor(TSNE=True, PCA=False):
     if TSNE==True:
-        X_embedded = TSNE(n_components=2).fit_transform(vectors_reshaped.reshape(vectors_reshaped.shape[0], vectors_reshaped.shape[2]))
+        X_embedded = TSNE(n_components=2).fit_transform(vectors_reshaped)
     if PCA==True:
         pca = PCA(n_components=2, random_state=43)
-        pca.fit(vectors_reshaped.reshape(vectors_reshaped.shape[0], vectors_reshaped.shape[2]))
-        X_embedded = pca.transform(vectors_reshaped.reshape(vectors_reshaped.shape[0], vectors_reshaped.shape[2]))
+        pca.fit(vectors_reshaped)
+        X_embedded = pca.transform(vectors_reshaped)
 
     return X_embedded
 
@@ -233,7 +233,7 @@ if __name__ == "__main__":
 
     vectors_extracted = feature_extractor()
 
-    vectors_reshaped = np.asarray(vectors_extracted).reshape(np.asarray(vectors_extracted).shape[0],np.asarray(vectors_extracted).shape[1],np.asarray(vectors_extracted).shape[2])
+    vectors_reshaped = np.asarray(vectors_extracted).reshape(np.asarray(vectors_extracted).shape[0],np.asarray(vectors_extracted).shape[2])
 
     holistic_table = pd.DataFrame(event_test, columns=['Events'])
 
