@@ -1,4 +1,4 @@
-'''import tensorflow.compat.v2.summary as summary
+import tensorflow.compat.v2.summary as summary
 from tensorflow.python.ops import summary_ops_v2
 import tensorflow as tf
 import numpy as np 
@@ -369,4 +369,4 @@ class TrainAndEvaluateModel:
         for key, value in val_cindex.items():
             summary.scalar(key, value, step=step_counter)
 
-        print(f"Validation: loss = {val_loss:.4f}, cindex = {val_cindex['cindex']:.4f}")'''
+        print(f"Validation: loss = {val_loss:.4f}, cindex = {val_cindex['cindex']:.4f}")
